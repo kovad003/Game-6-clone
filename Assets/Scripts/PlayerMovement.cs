@@ -19,37 +19,42 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        
+        ConfineMouse();
     }
 
     private void Update()
     {
         Move();
-        FlipSprite();
+        FaceCursor();
     }
 
     /* FUNCTIONS */
-    private void Move()
+    private void ConfineMouse()
     {
-        // Vector3 delta = _rawInput * (moveSpeed * Time.deltaTime);
-        // transform.position += delta;
-
-        // Vector2 playerVelocity = new Vector2 (_rawInput.x * moveSpeed, _rigidbody.velocity.y);
-        // _rigidbody.velocity = playerVelocity;
-
-        Vector2 playerVelocity = new Vector2(_rawInputKeys.x * moveSpeed, _rawInputKeys.y * moveSpeed);
-        _rigidbody.velocity = playerVelocity;
-
-        // bool playerHasHorizontalSpeed = Mathf.Abs(_rigidbody.velocity.x) > Mathf.Epsilon;
-
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
-    private void FlipSprite()
+    private void FaceCursor()
     {
-        bool playerHasHorizontalSpeed = Mathf.Abs(_rigidbody.velocity.x) > Mathf.Epsilon;
-        if (playerHasHorizontalSpeed)
+        Vector2 screenPosition = Mouse.current.position.ReadValue();
+        Vector2 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
+        // Debug.Log("worldPosition.x => " + worldPosition.x);
+        // Debug.Log("worldPosition.y => " + worldPosition.y);
+
+        if (worldPosition.x > 0)
         {
-            transform.localScale = new Vector2(Mathf.Sign(_rigidbody.velocity.x), 1f);
+            transform.localScale = new Vector2(Mathf.Sign(worldPosition.x), 1f);
         }
+        if (worldPosition.x < 0)
+        {
+            transform.localScale = new Vector2(Mathf.Sign(worldPosition.x), 1f);
+        }
+    }
+    private void Move()
+    {
+        Vector2 playerVelocity = new Vector2(_rawInputKeys.x * moveSpeed, _rawInputKeys.y * moveSpeed);
+        _rigidbody.velocity = playerVelocity;
     }
 
     /* EVENT FUNCTIONS */
@@ -58,11 +63,4 @@ public class PlayerMovement : MonoBehaviour
         _rawInputKeys = inputValue.Get<Vector2>();
         Debug.Log("Keys => " + _rawInputKeys);
     }
-
-    private void OnLook(InputValue inputValue)
-    {
-        _rawInputMouse = inputValue.Get<Vector2>();
-        Debug.Log("Mouse => " + _rawInputMouse);
-    }
-
 }
