@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ground
+  - Wall
+  - Door
+  - Background
+  - Furniture
+  - Gun
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -11,14 +18,14 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - Wall
+  - Door
+  - Background
+  - Furniture
+  - Player
+  - Gun
+  - Enemy
   - 
   - 
   - 
@@ -40,4 +47,25 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1756620395
+    locked: 0
+  - name: Ground
+    uniqueID: 4289212299
+    locked: 0
+  - name: Wall
+    uniqueID: 4002213367
+    locked: 0
+  - name: Door
+    uniqueID: 2139542019
+    locked: 0
+  - name: Furniture
+    uniqueID: 1909412519
+    locked: 0
+  - name: Enemy
+    uniqueID: 3625603157
+    locked: 0
+  - name: Player
+    uniqueID: 3091085259
     locked: 0
