@@ -140,6 +140,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1659851026, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
+      propertyPath: dashPower
+      value: 2.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659851026, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
+      propertyPath: dashingTime
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4252933359624766288, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
       propertyPath: m_Size.x
       value: 8.96
@@ -179,6 +187,14 @@ PrefabInstance:
     - target: {fileID: 4252933361118952992, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4252933361118952993, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4252933361118952993, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4252933361118952996, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
       propertyPath: m_RootOrder
@@ -445,12 +461,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1659851025}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2aa5faeec19ac134097b935d8ddbbd99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  dashingTime: 0.5
+  dashPower: 0
 --- !u!114 &1659851032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,7 +476,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1659851025}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
