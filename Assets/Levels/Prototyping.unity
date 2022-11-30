@@ -140,6 +140,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 828365950, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
+      propertyPath: m_Size.x
+      value: 2.1191778
+      objectReference: {fileID: 0}
+    - target: {fileID: 828365950, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
+      propertyPath: m_Size.y
+      value: 0.4609522
+      objectReference: {fileID: 0}
+    - target: {fileID: 828365950, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.060565114
+      objectReference: {fileID: 0}
+    - target: {fileID: 828365950, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.22996484
+      objectReference: {fileID: 0}
     - target: {fileID: 4252933361118952992, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
       propertyPath: m_Name
       value: Player
@@ -189,9 +205,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4252933361118952997, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
-      propertyPath: weapon
+      propertyPath: pivot
       value: 
-      objectReference: {fileID: 842674857}
+      objectReference: {fileID: 772870416}
+    - target: {fileID: 4252933361118952997, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
+      propertyPath: exclusionZone
+      value: 
+      objectReference: {fileID: 828365950}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
 --- !u!1 &519420028
@@ -278,9 +298,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &842674857 stripped
+--- !u!1 &772870416 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 4252933359624766290, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4252933361453772823, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
+  m_PrefabInstance: {fileID: 40352274}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &828365950 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 828365950, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
   m_PrefabInstance: {fileID: 40352274}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &851324972 stripped
