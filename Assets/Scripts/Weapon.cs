@@ -10,9 +10,17 @@ using UnityEngine;
 public class Weapon : MonoBehaviour {
 
     /* EXPOSED FIELDS: */
+    [Header("Weapon properties")]
     [SerializeField] float _damage = 1f;
+
+    [Tooltip("How long does it take to shoot another projectile")]
     [SerializeField] float _rateOfFire = 0.33f;
+
+    [Header("Weapon objects")]
+    [Tooltip("What does the weapon shoot")]
     [SerializeField] Projectile _projectile;
+    
+    [Tooltip("The instantiation point of the projectile")]
     [SerializeField] Transform _muzzle;
 
     /* HIDDEN FIELDS: */

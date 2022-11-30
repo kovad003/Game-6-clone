@@ -10,10 +10,21 @@ using UnityEngine;
 public class PlayerAiming : MonoBehaviour {
 
     /* EXPOSED FIELDS: */
+    [Header("Rotation")]
+    [Tooltip("The point where the weapon rotation pivots around")]
     [SerializeField] GameObject weaponPivot;
+
+    [Header("Weapon hiding (sorting layers)")]
+    [Tooltip("The object to hide behind")]
     [SerializeField] SpriteRenderer playerRenderer;
+
+    [Tooltip("The weapon to hide")]
     [SerializeField] SpriteRenderer weaponRenderer;
+
+    [Tooltip("The angle to start hiding")]
     [SerializeField] float hideWeaponThresholdMin = 75;
+
+    [Tooltip("The angle to stop hiding")]
     [SerializeField] float hideWeaponThresholdMax = 125;
 
     void Update() {
