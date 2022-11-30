@@ -12,15 +12,8 @@ public class CustomCursor : MonoBehaviour {
     /* EXPOSED FIELDS: */
     [SerializeField] Texture2D aimingReticle;
 
-    // Start is called before the first frame update
     void Start() {
-        //Cursor.visible = false;
         Vector2 hotspot = new Vector2(aimingReticle.width / 2, aimingReticle.height / 2);
         Cursor.SetCursor(aimingReticle, hotspot, CursorMode.Auto);
-    }
-
-    // Update is called once per frame
-    void Update() {
-        
     }
 }
