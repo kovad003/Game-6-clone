@@ -38,12 +38,12 @@ public class PlayerAiming : MonoBehaviour {
 
         // Flip the player and the gun depending on the side the cursor is on
         if (mouseWorldPos.x < transform.position.x) {
-            transform.localScale = new Vector3(-1, 1, 1);
+            // transform.localScale = new Vector3(-1, 1, 1);
             weaponScale.x = -1;
             weaponScale.y = -1;
             weaponPivot.transform.localScale = weaponScale;
         } else if(mouseWorldPos.x > transform.position.x) {
-            transform.localScale = new Vector3(1, 1, 1);
+            // transform.localScale = new Vector3(1, 1, 1);
             weaponScale.x = 1;
             weaponScale.y = 1;
             weaponPivot.transform.localScale = weaponScale;
