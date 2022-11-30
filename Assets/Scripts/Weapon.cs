@@ -4,16 +4,19 @@ using UnityEngine;
 
 /// <summary>
 /// AUTHOR: @Nuutti J.
-/// Last modified: 30 Nov 2022 by @Nuutti J.
+/// Last modified: 1 Dec. 2022 by @Nuutti J.
 /// </summary>
 
 public class Weapon : MonoBehaviour {
 
     /* EXPOSED FIELDS: */
     [SerializeField] float _damage = 1f;
-    [SerializeField] float _rateOfFire = 1f;
+    [SerializeField] float _rateOfFire = 0.33f;
     [SerializeField] Projectile _projectile;
-    [SerializeField] GameObject _muzzle;
+    [SerializeField] Transform _muzzle;
+
+    /* HIDDEN FIELDS: */
+    float nextFire;
 
     /* HIDDEN FIELDS: */
     Transform _weaponPivot;
@@ -23,15 +26,18 @@ public class Weapon : MonoBehaviour {
         _weaponPivot = GetComponentInParent<Transform>();
     }
 
-    // Update is called once per frame
-    void Update() {
-        if(Input.GetKeyDown(KeyCode.Space)) {
-            Shoot();
-        }
-    }
+    /* FUNCTIONS */
+    public void Shoot() {
+        // Shoot if the time of the latest shot has passed the fire rate
+        if(Time.time > nextFire) {
+            nextFire = Time.time + _rateOfFire;
 
-    void Shoot() {
-        Quaternion rotation = _weaponPivot.transform.rotation;
-        GameObject projectile = Instantiate(_projectile.gameObject, _muzzle.transform.position, rotation);
+            Quaternion rotation = _weaponPivot.transform.rotation;
+            GameObject projectile = Instantiate(_projectile.gameObject, _muzzle.position, rotation);
+            Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+
+            rb.AddForce(_muzzle.right * _projectile._speed, ForceMode2D.Impulse);
+        }
+        
     }
 }
