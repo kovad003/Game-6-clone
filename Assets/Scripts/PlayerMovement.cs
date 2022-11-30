@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 /// <summary>
 /// @Daniel K.
 /// Initial commit: 29-Nov-2022
-/// Last modified: 29-Nov-2022 by @Daniel K.
+/// Last modified: 30-Nov-2022 by @Daniel K.
 /// </summary>
 public class PlayerMovement : MonoBehaviour
 {
