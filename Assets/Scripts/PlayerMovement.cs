@@ -69,4 +69,9 @@ public class PlayerMovement : MonoBehaviour
         _rawInputKeys = inputValue.Get<Vector2>();
         Debug.Log("Keys => " + _rawInputKeys);
     }
+    
+    private void OnDash(InputValue inputValue)
+    {
+        Debug.Log("Keys => SPACE");
+    }
 }
