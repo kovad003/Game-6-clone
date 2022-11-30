@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4295768314800256950}
   - component: {fileID: 8644182195570706725}
+  - component: {fileID: 5262941702938651232}
   - component: {fileID: -3407810916125074414}
   m_Layer: 0
   m_Name: PistolProjectile
@@ -46,7 +47,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 847e5265db547e84ebec6335d5da3c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 10
+  _speed: 12
+--- !u!50 &5262941702938651232
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142401766096046115}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &-3407810916125074414
 BoxCollider2D:
   m_ObjectHideFlags: 0
