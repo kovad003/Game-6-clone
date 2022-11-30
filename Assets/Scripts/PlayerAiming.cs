@@ -4,6 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// AUTHOR: @Nuutti J.
+/// Last modified: 30 Nov 2022 by @Nuutti J.
 /// </summary>
 
 public class PlayerAiming : MonoBehaviour {
@@ -12,13 +13,6 @@ public class PlayerAiming : MonoBehaviour {
     [SerializeField] GameObject weaponPivot;
     [SerializeField] SpriteRenderer playerRenderer;
     [SerializeField] SpriteRenderer weaponRenderer;
-
-    /* HIDDEN FIELDS */
-
-
-    void Start() {
-
-    }
 
     void Update() {
         // The position of the cursor in unity coordinates
