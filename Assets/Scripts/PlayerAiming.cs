@@ -21,6 +21,7 @@ public class PlayerAiming : MonoBehaviour {
     }
 
     void Update() {
+        // The position of the cursor in unity coordinates
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         // Direction between the cursor position and the weapons pivot point
@@ -29,11 +30,11 @@ public class PlayerAiming : MonoBehaviour {
         // Change the weapon pivots right direction (red axis, x) to face the rotation direction
         weaponPivot.transform.right = rotateDir;
 
+        // Just for stroring the scale
         Vector2 weaponScale = weaponPivot.transform.localScale;
 
         // Hide the weapon if it is rotated "above" the players head
-        if (weaponPivot.transform.eulerAngles.z >= 75 && weaponPivot.transform.eulerAngles.z <= 105) {
-            Debug.Log("In the restricted zone");
+        if (weaponPivot.transform.eulerAngles.z > 75 && weaponPivot.transform.eulerAngles.z < 105) {
             weaponRenderer.sortingOrder = playerRenderer.sortingOrder - 1;
         } else {
             weaponRenderer.sortingOrder = playerRenderer.sortingOrder + 1;
