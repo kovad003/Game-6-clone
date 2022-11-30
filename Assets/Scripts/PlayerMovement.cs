@@ -15,15 +15,17 @@ public class PlayerMovement : MonoBehaviour
     [Header("Dashing")]
     [SerializeField] private float dashingTime = 0.5f;
     [Tooltip("Value is used to multiple the player's velocity!")]
-    [SerializeField] [Range(1, 10)] private float dashPower;
+    [SerializeField] [Range(1, 10)] private float dashPower = 1;
+    [SerializeField] [Range(1,10)] private float dashCooldown = 1;
     
     /* HIDDEN FIELDS */
     private Vector2 _rawInputKeys;
     private Vector2 _rawInputMouse;
     private Rigidbody2D _rigidbody;
     private TrailRenderer _trailRenderer;
+    private bool _canDash = true;
     private bool _isDashing; // false by default
-
+    
     private void Start()
     {
         // Binding Components:
@@ -76,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
             _rigidbody.velocity = playerVelocity;
             _trailRenderer.emitting = false;
         }
-        else
+        if (_isDashing)
         {
             _rigidbody.velocity = dashPower * playerVelocity;
             _trailRenderer.emitting = true;
@@ -92,6 +94,7 @@ public class PlayerMovement : MonoBehaviour
     
     private void OnDash(InputValue inputValue)
     {
+        // if (!_canDash) return;
         StartCoroutine(DashCoroutine());
         Debug.Log("Keys => SPACE");
     }
@@ -99,8 +102,14 @@ public class PlayerMovement : MonoBehaviour
     /* COROUTINE */
     private IEnumerator DashCoroutine()
     {
+        // Condition:
+        if (!_canDash) yield break;
+        
+        _canDash = false;
         _isDashing = true;
         yield return new WaitForSeconds(dashingTime);
         _isDashing = false;
+        yield return new WaitForSeconds(dashCooldown);
+        _canDash = true;
     }
 }
