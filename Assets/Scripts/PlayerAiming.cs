@@ -71,6 +71,7 @@ public class PlayerAiming : MonoBehaviour {
         }
     }
 
+    /* FUNCTIONS */
     bool isInExclusionZone() {
         return exclusionZone.OverlapPoint(mouseWorldPos);
     }
