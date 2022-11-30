@@ -42,14 +42,20 @@ public class PlayerMovement : MonoBehaviour
         // Debug.Log("worldPosition.x => " + worldPosition.x);
         // Debug.Log("worldPosition.y => " + worldPosition.y);
 
-        if (worldPosition.x > 0)
+        if (worldPosition.x > _rigidbody.position.x)
         {
-            transform.localScale = new Vector2(Mathf.Sign(worldPosition.x), 1f);
+            // Debug.Log("worldPosition.x > _rigidbody.position.x");
+            transform.localScale = new Vector2(Mathf.Sign(+1), 1f);
         }
-        if (worldPosition.x < 0)
+        if (worldPosition.x < _rigidbody.position.x)
         {
-            transform.localScale = new Vector2(Mathf.Sign(worldPosition.x), 1f);
+            // Debug.Log("worldPosition.x < _rigidbody.position.x");
+            transform.localScale = new Vector2(Mathf.Sign(-1), 1f);
         }
+        
+        // Getting position data:
+        // Debug.Log("Playa.X: " + _rigidbody.position.x);
+        // Debug.Log("Mouse.X: " + worldPosition.x);
     }
     private void Move()
     {
