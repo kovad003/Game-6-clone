@@ -13,6 +13,8 @@ public class PlayerAiming : MonoBehaviour {
     [SerializeField] GameObject weaponPivot;
     [SerializeField] SpriteRenderer playerRenderer;
     [SerializeField] SpriteRenderer weaponRenderer;
+    [SerializeField] float hideWeaponThresholdMin = 75;
+    [SerializeField] float hideWeaponThresholdMax = 125;
 
     void Update() {
         // The position of the cursor in unity coordinates
@@ -28,7 +30,7 @@ public class PlayerAiming : MonoBehaviour {
         Vector2 weaponScale = weaponPivot.transform.localScale;
 
         // Hide the weapon if it is rotated "above" the players head
-        if (weaponPivot.transform.eulerAngles.z > 75 && weaponPivot.transform.eulerAngles.z < 105) {
+        if (weaponPivot.transform.eulerAngles.z > hideWeaponThresholdMin && weaponPivot.transform.eulerAngles.z < hideWeaponThresholdMax) {
             weaponRenderer.sortingOrder = playerRenderer.sortingOrder - 1;
         } else {
             weaponRenderer.sortingOrder = playerRenderer.sortingOrder + 1;
@@ -38,10 +40,12 @@ public class PlayerAiming : MonoBehaviour {
         if (mouseWorldPos.x < transform.position.x) {
             transform.localScale = new Vector3(-1, 1, 1);
             weaponScale.x = -1;
+            weaponScale.y = -1;
             weaponPivot.transform.localScale = weaponScale;
         } else if(mouseWorldPos.x > transform.position.x) {
             transform.localScale = new Vector3(1, 1, 1);
             weaponScale.x = 1;
+            weaponScale.y = 1;
             weaponPivot.transform.localScale = weaponScale;
         }
 
