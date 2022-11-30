@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6405031093082980454}
   - component: {fileID: 6405031093082980455}
   - component: {fileID: 6405031093082980449}
+  - component: {fileID: 4566629550468294884}
   m_Layer: 13
   m_Name: Enemy_Bat
   m_TagString: Enemy
@@ -117,6 +118,26 @@ MonoBehaviour:
   speed: 600
   waypointDistance: 0.2
   enemyGraphics: {fileID: 6405031093369212444}
+--- !u!95 &4566629550468294884
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6405031093082980456}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f6cf91e61211e1d49a214ee16a5ebb9f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6405031093369212445
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,6 +148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6405031093369212444}
   - component: {fileID: 6405031093369212442}
+  - component: {fileID: 6999564729293647726}
   m_Layer: 13
   m_Name: Bat_0
   m_TagString: Untagged
@@ -201,3 +223,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &6999564729293647726
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6405031093369212445}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f6cf91e61211e1d49a214ee16a5ebb9f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
