@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,17 +10,29 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     /* EXPOSED FIELDS */
+    [Header("Moving")]
     [SerializeField] private float moveSpeed = 5.0f;
-
+    [Header("Dashing")]
+    [SerializeField] private float dashingTime = 0.5f;
+    [Tooltip("Value is used to multiple the player's velocity!")]
+    [SerializeField] [Range(1, 10)] private float dashPower = 1;
+    [SerializeField] [Range(1,10)] private float dashCooldown = 1;
+    
     /* HIDDEN FIELDS */
     private Vector2 _rawInputKeys;
     private Vector2 _rawInputMouse;
     private Rigidbody2D _rigidbody;
-
+    private TrailRenderer _trailRenderer;
+    private bool _canDash = true;
+    private bool _isDashing; // false by default
+    
     private void Start()
     {
+        // Binding Components:
         _rigidbody = GetComponent<Rigidbody2D>();
+        _trailRenderer = GetComponent<TrailRenderer>();
         
+        // Calling Methods:
         ConfineMouse();
     }
 
@@ -60,7 +73,16 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         Vector2 playerVelocity = new Vector2(_rawInputKeys.x * moveSpeed, _rawInputKeys.y * moveSpeed);
-        _rigidbody.velocity = playerVelocity;
+        if (!_isDashing)
+        {
+            _rigidbody.velocity = playerVelocity;
+            _trailRenderer.emitting = false;
+        }
+        if (_isDashing)
+        {
+            _rigidbody.velocity = dashPower * playerVelocity;
+            _trailRenderer.emitting = true;
+        }
     }
 
     /* EVENT FUNCTIONS */
@@ -68,5 +90,26 @@ public class PlayerMovement : MonoBehaviour
     {
         _rawInputKeys = inputValue.Get<Vector2>();
         Debug.Log("Keys => " + _rawInputKeys);
+    }
+    
+    private void OnDash(InputValue inputValue)
+    {
+        // if (!_canDash) return;
+        StartCoroutine(DashCoroutine());
+        Debug.Log("Keys => SPACE");
+    }
+    
+    /* COROUTINE */
+    private IEnumerator DashCoroutine()
+    {
+        // Condition:
+        if (!_canDash) yield break;
+        
+        _canDash = false;
+        _isDashing = true;
+        yield return new WaitForSeconds(dashingTime);
+        _isDashing = false;
+        yield return new WaitForSeconds(dashCooldown);
+        _canDash = true;
     }
 }
