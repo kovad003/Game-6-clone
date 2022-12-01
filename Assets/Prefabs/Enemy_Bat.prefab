@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6405031093082980455}
   - component: {fileID: 6405031093082980449}
   - component: {fileID: 6405031093082980451}
+  - component: {fileID: -5403919734109762916}
   m_Layer: 13
   m_Name: Enemy_Bat
   m_TagString: Enemy
@@ -138,6 +139,20 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
+--- !u!114 &-5403919734109762916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6405031093082980456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 116912b95f029b94f9352ae56eedd609, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 2
+  currentHealth: 0
 --- !u!1 &6405031093369212445
 GameObject:
   m_ObjectHideFlags: 0
