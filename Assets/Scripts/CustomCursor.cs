@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
 /// AUTHOR: @Nuutti J.
-/// Last modified: 30 Nov 2022 by @Nuutti J.
+/// Last modified: 01 Dec 2022 by @Daniel K.
 /// </summary>
 
 public class CustomCursor : MonoBehaviour {
@@ -12,8 +10,21 @@ public class CustomCursor : MonoBehaviour {
     /* EXPOSED FIELDS: */
     [SerializeField] Texture2D aimingReticle;
 
-    void Start() {
+    void Start()
+    {
+        ConfineMouse();
+        SetCustomCursor();
+    }
+
+    private void SetCustomCursor()
+    {
         Vector2 hotspot = new Vector2(aimingReticle.width / 2, aimingReticle.height / 2);
         Cursor.SetCursor(aimingReticle, hotspot, CursorMode.Auto);
+    }
+
+    //Added by Daniel K. - 01122022
+    private void ConfineMouse()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
     }
 }
