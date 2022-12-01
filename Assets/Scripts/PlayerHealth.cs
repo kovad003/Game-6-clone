@@ -13,19 +13,8 @@ public class PlayerHealth : MonoBehaviour
     [Header("UI: ")]
     [Tooltip("Attach the game over canvas here!")]
     [SerializeField] private Canvas gameOverCanvas;
-    
-    /* METHODS: */
-    // private void OnCollisionEnter2D(Collision2D other)
-    // {
-    //     if (other.gameObject.CompareTag("Enemy"))
-    //     {
-    //         TakeDamage(20); 
-    //         // TODO dmg should be collected from Enemy
-    //         // TakeDamage(other.GetDamageValue); 
-    //     }
-    // }
 
-    private void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         hitPoints -= damage;
         if (hitPoints <= 0.0f)
