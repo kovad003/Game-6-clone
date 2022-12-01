@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6405031093082980449}
   - component: {fileID: 6405031093082980451}
   - component: {fileID: -5403919734109762916}
+  - component: {fileID: 7239554888552308693}
   m_Layer: 13
   m_Name: Enemy_Bat
   m_TagString: Enemy
@@ -107,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a940ecf178f768c428be3c5844a7e42a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 4252933361118952996, guid: 0af8411976c848746b85f0a608328ebf, type: 3}
+  target: {fileID: 0}
   enemyGraphics: {fileID: 6405031093369212444}
   speed: 600
   waypointDistance: 0.2
@@ -153,6 +154,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 2
   currentHealth: 0
+--- !u!114 &7239554888552308693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6405031093082980456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c54149dd7c9e3841a725acb428c35cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forceModifier: 5
 --- !u!1 &6405031093369212445
 GameObject:
   m_ObjectHideFlags: 0

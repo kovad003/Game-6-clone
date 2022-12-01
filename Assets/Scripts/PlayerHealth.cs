@@ -15,15 +15,15 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private Canvas gameOverCanvas;
     
     /* METHODS: */
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            TakeDamage(20); 
-            // TODO dmg should be collected from Enemy
-            // TakeDamage(other.GetDamageValue); 
-        }
-    }
+    // private void OnCollisionEnter2D(Collision2D other)
+    // {
+    //     if (other.gameObject.CompareTag("Enemy"))
+    //     {
+    //         TakeDamage(20); 
+    //         // TODO dmg should be collected from Enemy
+    //         // TakeDamage(other.GetDamageValue); 
+    //     }
+    // }
 
     private void TakeDamage(float damage)
     {

@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -8,15 +10,27 @@ using UnityEngine;
 /// </summary>
 public class EnemyAttack : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    /* EXPOSED FIELDS: */
+    [SerializeField] private float forceModifier = 15;
+    
+    /* HIDDEN FIELDS: */
+    private Rigidbody2D rigidbody;
+    
+    
+    private void Start()
     {
-        
+        rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("kick back");
+            rigidbody.velocity = forceModifier * -1 * rigidbody.velocity.normalized;
+            // TakeDamage(20); 
+            // TODO dmg should be collected from Enemy
+            // TakeDamage(other.GetDamageValue); 
+        }
     }
 }

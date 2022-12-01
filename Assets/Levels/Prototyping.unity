@@ -890,7 +890,7 @@ MonoBehaviour:
   manualDebugFloorRoof: 0
   showSearchTree: 0
   unwalkableNodeDebugSize: 0.3
-  logPathResults: 1
+  logPathResults: 0
   maxNearestNodeDistance: 100
   scanOnStartup: 1
   fullGetNearestSearch: 0
@@ -1112,17 +1112,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 1910009562}
     m_Modifications:
     - target: {fileID: 6405031093082980449, guid: bf20a76a653e6f149b66f9749e4e4da9, type: 3}
-      propertyPath: speed
-      value: 600
-      objectReference: {fileID: 0}
-    - target: {fileID: 6405031093082980449, guid: bf20a76a653e6f149b66f9749e4e4da9, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 1659851039}
-    - target: {fileID: 6405031093082980449, guid: bf20a76a653e6f149b66f9749e4e4da9, type: 3}
-      propertyPath: waypointDistance
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 6405031093082980450, guid: bf20a76a653e6f149b66f9749e4e4da9, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1166,18 +1158,6 @@ PrefabInstance:
     - target: {fileID: 6405031093082980450, guid: bf20a76a653e6f149b66f9749e4e4da9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6405031093082980455, guid: bf20a76a653e6f149b66f9749e4e4da9, type: 3}
-      propertyPath: m_Mass
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6405031093082980455, guid: bf20a76a653e6f149b66f9749e4e4da9, type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6405031093082980455, guid: bf20a76a653e6f149b66f9749e4e4da9, type: 3}
-      propertyPath: m_LinearDrag
-      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6405031093082980456, guid: bf20a76a653e6f149b66f9749e4e4da9, type: 3}
       propertyPath: m_Name
