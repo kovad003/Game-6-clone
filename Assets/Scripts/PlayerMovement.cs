@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 /// <summary>
 /// @Daniel K.
 /// Initial commit: 29-Nov-2022
-/// Last modified: 30-Nov-2022 by @Daniel K.
+/// Last modified: 01 Dec 2022 by @Daniel K.
 /// </summary>
 public class PlayerMovement : MonoBehaviour
 {
@@ -33,7 +33,6 @@ public class PlayerMovement : MonoBehaviour
         _trailRenderer = GetComponent<TrailRenderer>();
         
         // Calling Methods:
-        ConfineMouse();
     }
 
     private void Update()
@@ -43,11 +42,6 @@ public class PlayerMovement : MonoBehaviour
     }
 
     /* FUNCTIONS */
-    private void ConfineMouse()
-    {
-        Cursor.lockState = CursorLockMode.Confined;
-    }
-
     private void FaceCursor()
     {
         Vector2 screenPosition = Mouse.current.position.ReadValue();
