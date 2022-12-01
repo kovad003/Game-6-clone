@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
+/// <summary>
+/// AUTHOR: @Joona H.
+/// Last modified: 1 Dec 2022 by @Joona H.
+/// </summary>
 public class EnemyAI : MonoBehaviour
 {
-
+    /* EXPOSED FIELDS: */
     public Transform target;
-
+    public Transform enemyGraphics;
     public float speed = 200f;
     public float waypointDistance = 3f;
 
-    public Transform enemyGraphics;
-
+    /* HIDDEN FIELDS: */
     Path path;
     int currentWaypoint = 0;
     bool reachedEndOfPath = false;
