@@ -187,7 +187,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eca54fad7e3197409f633949e4aec6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 1
   _rateOfFire: 0.33
   _projectile: {fileID: 8644182195570706725, guid: 8be1d14e71c2bac4a8583873b2acd333, type: 3}
   _muzzle: {fileID: 718545497}
@@ -208,6 +207,7 @@ GameObject:
   - component: {fileID: 1659851032}
   - component: {fileID: 1659851040}
   - component: {fileID: 1659851049}
+  - component: {fileID: 3458020987505224079}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -506,6 +506,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootInput: {fileID: -1108304179494249724, guid: 62a4e55551ffa90458dd21790bce4f7e, type: 3}
+--- !u!95 &3458020987505224079
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4252933361118952992}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0f8f191b6d3637c4386f4f050997309f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4252933361453772823
 GameObject:
   m_ObjectHideFlags: 0
