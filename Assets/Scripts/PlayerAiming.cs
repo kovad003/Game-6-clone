@@ -4,7 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// AUTHOR: @Nuutti J.
-/// Last modified: 30 Nov 2022 by @Nuutti J.
+/// Last modified: 1 Dec 2022 by @Nuutti J.
 /// </summary>
 
 public class PlayerAiming : MonoBehaviour {
@@ -32,22 +32,23 @@ public class PlayerAiming : MonoBehaviour {
 
     /* HIDDEN FIELDS: */
     Vector3 mouseWorldPos;
+    Vector2 rotateDir;
 
     void Update() {
         // The position of the cursor in unity coordinates
         mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        // Direction between the cursor position and the weapons pivot point
-        Vector2 rotateDir = (mouseWorldPos - pivot.transform.position).normalized;
+        // Just for stroring the scale
+        Vector2 weaponScale = pivot.transform.localScale;
 
         // Only rotate if not in exclusion zone
         // (quick fix for the wonky behaviour when the cursor is near the pivot point)
-        if(!isInExclusionZone()) {
+        if (!isInExclusionZone()) {
+            // Direction between the cursor position and the weapons pivot point
+            rotateDir = (mouseWorldPos - pivot.transform.position).normalized;
+
             // Change the weapon pivots right direction (red axis, x) to face the rotation direction
             pivot.transform.right = rotateDir;
-
-            // Just for stroring the scale
-            Vector2 weaponScale = pivot.transform.localScale;
 
             // Hide the weapon if it is rotated "above" the players head
             if (pivot.transform.eulerAngles.z > hideThresholdStart && pivot.transform.eulerAngles.z < hideThresholdEnd) {
@@ -55,19 +56,26 @@ public class PlayerAiming : MonoBehaviour {
             } else {
                 weaponRenderer.sortingOrder = playerRenderer.sortingOrder + 1;
             }
+        }
 
-            // Flip the player and the gun depending on the side the cursor is on
-            if (mouseWorldPos.x < transform.position.x) {
-                // transform.localScale = new Vector3(-1, 1, 1);
-                weaponScale.x = -1;
-                weaponScale.y = -1;
-                pivot.transform.localScale = weaponScale;
-            } else if (mouseWorldPos.x > transform.position.x) {
-                // transform.localScale = new Vector3(1, 1, 1);
-                weaponScale.x = 1;
-                weaponScale.y = 1;
-                pivot.transform.localScale = weaponScale;
+        // Flip the gun depending on the side the cursor is on
+        // If flipped inside the exclusion zone, just invert the latest stored rotateDir x-axis
+        if (mouseWorldPos.x < transform.position.x) {
+            if(isInExclusionZone()) {
+                pivot.transform.right = new Vector2(-rotateDir.x, rotateDir.y);
             }
+            
+            weaponScale.x = -1;
+            weaponScale.y = -1;
+            pivot.transform.localScale = weaponScale;
+        } else if (mouseWorldPos.x > transform.position.x) {
+            if (isInExclusionZone()) {
+                pivot.transform.right = rotateDir;
+            }
+
+            weaponScale.x = 1;
+            weaponScale.y = 1;
+            pivot.transform.localScale = weaponScale;
         }
     }
 
