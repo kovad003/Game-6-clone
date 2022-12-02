@@ -13,12 +13,16 @@ public class EnemyAI : MonoBehaviour
     public Transform target;
     public Transform enemyGraphics;
     public float speed = 200f;
-    public float waypointDistance = 3f;
-
+    public float waypointDistance = 3f; 
+    [SerializeField] [Range(1.0f, 20.0f)] 
+    private float chaseRadius = 3.0f;
+    
     /* HIDDEN FIELDS: */
     Path path;
     int currentWaypoint = 0;
     bool reachedEndOfPath = false;
+    private float distanceToTarget = Mathf.Infinity;
+    
 
     Seeker seeker;
     Rigidbody2D rb;
@@ -47,13 +51,22 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        SampleTargetDistance();
         Move();
     }
 
+    private void SampleTargetDistance()
+    {
+        distanceToTarget = Vector2.Distance(target.position, transform.position);
+    }
+    
     private void Move()
     {
+        // Conditions:
         // if (CameraController.GetIsInRoom()) return;
+        if (!(distanceToTarget < chaseRadius)) return;
         
+        // Code:
         if (path == null)
             return;
         if (currentWaypoint >= path.vectorPath.Count)

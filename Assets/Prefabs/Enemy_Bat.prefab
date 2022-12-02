@@ -22,7 +22,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6405031093082980450
 Transform:
   m_ObjectHideFlags: 0
@@ -112,6 +112,7 @@ MonoBehaviour:
   enemyGraphics: {fileID: 6405031093369212444}
   speed: 600
   waypointDistance: 0.2
+  chaseRadius: 8.7
 --- !u!114 &6405031093082980451
 MonoBehaviour:
   m_ObjectHideFlags: 0
