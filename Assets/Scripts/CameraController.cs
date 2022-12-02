@@ -5,7 +5,7 @@ using Cinemachine;
 
 /// <summary>
 /// AUTHOR: @Nuutti J.
-/// Last modified: 1 Dec. 2022 by @Nuutti J.
+/// Last modified: 1 Dec. 2022 by @Daniel K.
 /// </summary>
 
 public class CameraController : MonoBehaviour {
@@ -17,7 +17,7 @@ public class CameraController : MonoBehaviour {
     [SerializeField] Transform roomExit;
 
     /* HIDDEN FIELDS: */
-    bool isInRoom = false;
+    static bool isInRoom = false;
 
     void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("Player")) {
@@ -34,5 +34,11 @@ public class CameraController : MonoBehaviour {
             }
             
         }
+    }
+
+    // Daniel K. - 02/12/2022
+    public static bool GetIsInRoom()
+    {
+        return isInRoom;
     }
 }
