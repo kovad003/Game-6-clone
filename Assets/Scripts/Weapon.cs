@@ -11,7 +11,6 @@ public class Weapon : MonoBehaviour {
 
     /* EXPOSED FIELDS: */
     [Header("Weapon properties")]
-    [SerializeField] float _damage = 1f;
 
     [Tooltip("How long does it take to shoot another projectile")]
     [SerializeField] float _rateOfFire = 0.33f;
