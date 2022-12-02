@@ -23,15 +23,20 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _rawInputMouse;
     private Rigidbody2D _rigidbody;
     private TrailRenderer _trailRenderer;
+    private Animator _animator;
     private bool _canDash = true;
     private bool _isDashing; // false by default
     
+    // Animator Hash
+    private static readonly int IsMoving = Animator.StringToHash("isMoving");
+
     private void Start()
     {
         // Binding Components:
         _rigidbody = GetComponent<Rigidbody2D>();
         _trailRenderer = GetComponent<TrailRenderer>();
-        
+        _animator = GetComponent<Animator>();
+
         // Calling Methods:
     }
 
@@ -67,6 +72,10 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         Vector2 playerVelocity = new Vector2(_rawInputKeys.x * moveSpeed, _rawInputKeys.y * moveSpeed);
+
+        if (playerVelocity == new Vector2(0, 0))
+            _animator.SetBool(IsMoving, false);
+        
         if (!_isDashing)
         {
             _rigidbody.velocity = playerVelocity;
@@ -83,14 +92,13 @@ public class PlayerMovement : MonoBehaviour
     private void OnMove(InputValue inputValue)
     {
         _rawInputKeys = inputValue.Get<Vector2>();
-        Debug.Log("Keys => " + _rawInputKeys);
+        _animator.SetBool(IsMoving, true);
     }
     
     private void OnDash(InputValue inputValue)
     {
         // if (!_canDash) return;
         StartCoroutine(DashCoroutine());
-        Debug.Log("Keys => SPACE");
     }
     
     /* COROUTINE */
