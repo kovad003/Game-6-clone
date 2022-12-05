@@ -4,6 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// AUTHOR: @Toni
+/// Last modified: 05 Dec. 2022 by @Daniel K.
+/// </summary>
+/// 
 public class SceneLoader : MonoBehaviour
 {
     [SerializeField]
@@ -23,6 +28,7 @@ public class SceneLoader : MonoBehaviour
     public void NewGame()
     {
         SceneManager.LoadScene("Demo Level");
+        Time.timeScale = 1;
     }
 
     public void Options()

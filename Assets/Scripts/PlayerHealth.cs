@@ -9,10 +9,6 @@ public class PlayerHealth : MonoBehaviour
     /* EXPOSED FIELDS: */
     [Header("PLAYER: ")] 
     [SerializeField] private float hitPoints = 100.0f;
-    
-    [Header("UI: ")]
-    [Tooltip("Attach the game over canvas here!")]
-    [SerializeField] private Canvas gameOverCanvas;
 
     public void TakeDamage(float damage)
     {
@@ -26,10 +22,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("You have DIED!");
-        // TODO Game Over canvas should be enabled here
-        // gameOverCanvas.enabled = true;
-        Time.timeScale = 0;
+        FindObjectOfType<EndOfGameScript>().GameOver();
         GetComponent<PlayerMovement>().enabled = false;
         GetComponent<PlayerAiming>().enabled = false;
     }

@@ -1,18 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// AUTHOR: @Toni
+/// Last modified: 05 Dec. 2022 by @Daniel K.
+/// </summary>
+/// 
 public class PauseScript : MonoBehaviour
 {
     [SerializeField]
     private GameObject pauseCanvas;
     [SerializeField]
     private GameObject optionsCanvas;
-    [SerializeField]
-    private GameObject winnerCanvas;
-    [SerializeField]
-    private GameObject gameOverCanvas;
 
     // Update is called once per frame
     void Update()
@@ -51,12 +50,13 @@ public class PauseScript : MonoBehaviour
     public void quitGame()
     {
         SceneManager.LoadScene("MainMenu");
+        SceneManager.UnloadSceneAsync("Demo Level");
+        CustomCursor.SetDefaultCursor();
     }
 
     public void restartLevel()
     {
-        winnerCanvas.SetActive(false);
-        gameOverCanvas.SetActive(false);
         SceneManager.LoadScene("Demo Level");
+        Time.timeScale = 1;
     }
 }
