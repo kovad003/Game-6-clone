@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +18,18 @@ public class CameraController : MonoBehaviour {
     [SerializeField] Transform roomExit;
 
     /* HIDDEN FIELDS: */
-    static bool isInRoom = false;
+    static bool isInRoom = true;
+
+    private void Start()
+    {
+        if(isInRoom) {
+            mainCam.Priority = 0;
+            camToSwitch.Priority = 1;
+        } else {
+            mainCam.Priority = 1;
+            camToSwitch.Priority = 0;
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("Player")) {
