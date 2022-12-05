@@ -9,10 +9,6 @@ public class PauseScript : MonoBehaviour
     private GameObject pauseCanvas;
     [SerializeField]
     private GameObject optionsCanvas;
-    [SerializeField]
-    private GameObject winnerCanvas;
-    [SerializeField]
-    private GameObject gameOverCanvas;
 
     // Update is called once per frame
     void Update()
@@ -55,8 +51,6 @@ public class PauseScript : MonoBehaviour
 
     public void restartLevel()
     {
-        winnerCanvas.SetActive(false);
-        gameOverCanvas.SetActive(false);
         SceneManager.LoadScene("Demo Level");
     }
 }
