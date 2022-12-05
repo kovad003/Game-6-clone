@@ -16,6 +16,11 @@ public class CustomCursor : MonoBehaviour {
         SetCustomCursor();
     }
 
+    public static void SetDefaultCursor()
+    {
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+    }
+    
     private void SetCustomCursor()
     {
         Vector2 hotspot = new Vector2(aimingReticle.width / 2, aimingReticle.height / 2);

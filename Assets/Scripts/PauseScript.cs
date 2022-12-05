@@ -1,8 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// AUTHOR: @Toni
+/// Last modified: 05 Dec. 2022 by @Daniel K.
+/// </summary>
+/// 
 public class PauseScript : MonoBehaviour
 {
     [SerializeField]
@@ -47,10 +50,13 @@ public class PauseScript : MonoBehaviour
     public void quitGame()
     {
         SceneManager.LoadScene("MainMenu");
+        SceneManager.UnloadSceneAsync("Demo Level");
+        CustomCursor.SetDefaultCursor();
     }
 
     public void restartLevel()
     {
         SceneManager.LoadScene("Demo Level");
+        Time.timeScale = 1;
     }
 }
