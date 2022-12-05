@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelDetector : MonoBehaviour
+public class LevelExitDetector : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D other)
     {

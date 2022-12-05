@@ -4281,6 +4281,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1133401517}
   - component: {fileID: 1133401516}
+  - component: {fileID: 466430658}
   m_Layer: 0
   m_Name: CanvasController
   m_TagString: Untagged
@@ -4321,7 +4322,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseCanvas: {fileID: 891864251}
   optionsCanvas: {fileID: 71888893}
-  winnerCanvas: {fileID: 867364060}
+--- !u!114 &466430658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133401515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de6439bca09f71e4fbc47eab3bfb8fd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameWonCanvas: {fileID: 867364060}
   gameOverCanvas: {fileID: 737130404}
 --- !u!1 &1165423415
 GameObject:
